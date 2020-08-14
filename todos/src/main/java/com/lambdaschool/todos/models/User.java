@@ -46,7 +46,7 @@ public class User extends Auditable
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties(value = "user")
-    private List<Todos> todos = new ArrayList<>();
+    private List<Todos> todos = new ArrayList<>(); // many todos for one user
 
     /**
      * Default constructor used primarily by the JPA.
@@ -168,6 +168,7 @@ public class User extends Auditable
 
     public List<Todos> getTodos()
     {
+        //System.out.println("User.getTodos in User model ran."); // debuggin
         return todos;
     }
 
