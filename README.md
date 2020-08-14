@@ -1748,9 +1748,24 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Can you explain your data model, data schema to me?
+
+One user can have many todos; One todo can have one user.
+
+I used the SeedData file to look at how some of the Todos functionality was expected to behave.
+
+There is a table users which has a one to many relationship with table todos, and because of that todos has a many to one relationship with users table.
+
 2. Can you explain how you connected your API to a database?
+
+Using controllers which have defined mapping. The controller calls a service, which then acts on the repository for the specific data that needs CRUD operations performed.
+
 3. Can you explain the flow of data from client through the backend system and back to the client?
+
+Http request sent from client to API end point. The api listens for these http requests. Depending on the endpoint, a specific controller then calls a specific service which calls a specific repository which then lets JPA manage data between the back end code and the database. Operations are performed as requested on the data, and then the controller responds with an http response, either an error or a success message of some kind. Depending on what is needed, a client might send headers or body info with their request, and the controller may respond with header or body info in its response to the client.
+
 4. How did you handle querying in your application: custom querying vs JPA Querying?
+
+If this isn't filled out ask me. But it will probably be with JPA querying, especially since I don't have a data.sql file to easily visualize the table relationships. JPA just seems easier overall.
 
 ## Instructions
 
